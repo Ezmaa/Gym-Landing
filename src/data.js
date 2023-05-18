@@ -1,5 +1,6 @@
 // images
 import Logo from '../src/assets/img/header/logo.svg';
+import YourLogo from '../src/assets/img/header/logo.webp'
 import ResistanceImg from '../src/assets/img/workouts/resistance.png';
 import BoxingImg from '../src/assets/img/workouts/boxing.png';
 import BodyPumpImg from '../src/assets/img/workouts/body-pump.png';
@@ -20,7 +21,7 @@ import CommunityIcn from '../src/assets/img/community/icons/community-icn.svg';
 import QuestionMarkIcn from '../src/assets/img/faq/icons/question-mark.svg';
 
 export const header = {
-  logo: Logo,
+  logo: YourLogo,
   btnLoginText: 'Log in',
   btnSignupText: 'Sign Up',
 };
