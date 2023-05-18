@@ -37,10 +37,10 @@ export const nav = [
 ];
 
 export const banner = {
-  titlePart1: 'Get the best part of your day',
-  titlePart2: '– you fit here.',
+  titlePart1: "Run, don't walk to your future",
+  titlePart2: '– lead by example.',
   subtitle:
-    'We provide serious fitness but within a fun and friendly, safe space.',
+    'Nurturing champions through passion, guidance, and joyful play.',
   textBtn: 'Join Now',
   img: '',
 };
