@@ -33,7 +33,7 @@ module.exports = {
         page: '#fcfcff',
       },
       backgroundImage: {
-        banner: "url('/src/assets/img/banner/bg.png')",
+        banner: "url('/src/assets/img/banner/demetri-football.png')",
         faq: "url('/src/assets/img/faq/bg.svg')",
       },
       backgroundSize: {

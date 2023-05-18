@@ -10,7 +10,7 @@ const Nav = () => {
         {nav.map((item, idx) => {
           return (
             <li key={idx}>
-              <a href='#' className='hover:text-primary-200 transition'>
+              <a href='#' className='hover:text-primary-200 '>
                 {item.name}
               </a>
             </li>

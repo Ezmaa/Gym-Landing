@@ -13,6 +13,7 @@ import CommunityImg2 from '../src/assets/img/community/img2.png';
 import CommunityImg3 from '../src/assets/img/community/img3.png';
 import CommunityImg4 from '../src/assets/img/community/img4.png';
 import JoinImg from '../src/assets/img/join/woman.png';
+
 // icons
 import UsersIcn from '../src/assets/img/about/icons/users-icn.svg';
 import CalendarIcn from '../src/assets/img/workouts/icons/calendar.svg';
