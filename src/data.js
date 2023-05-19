@@ -1,18 +1,13 @@
 // images
-import Logo from '../src/assets/img/header/logo.svg';
 import YourLogo from '../src/assets/img/header/logo.webp'
-import ResistanceImg from '../src/assets/img/workouts/resistance.png';
-import BoxingImg from '../src/assets/img/workouts/boxing.png';
-import BodyPumpImg from '../src/assets/img/workouts/body-pump.png';
-import YogaImg from '../src/assets/img/workouts/yoga.png';
-import FullBodyImg from '../src/assets/img/workouts/full-body.png';
-import FitnessImg from '../src/assets/img/workouts/fitness.png';
-import BattleRopeImg from '../src/assets/img/workouts/battle-rope.png';
+import PrivateSesh from '../src/assets/img/workouts/private.png';
+import GroupSesh from '../src/assets/img/workouts/group.png';
+import Recruiting from '../src/assets/img/workouts/recruiting.png';
 import CommunityImg1 from '../src/assets/img/community/img1.png';
 import CommunityImg2 from '../src/assets/img/community/img2.png';
 import CommunityImg3 from '../src/assets/img/community/img3.png';
 import CommunityImg4 from '../src/assets/img/community/img4.png';
-import JoinImg from '../src/assets/img/join/woman.png';
+import JoinImg from '../src/assets/img/join/demetri-stance.png';
 
 // icons
 import UsersIcn from '../src/assets/img/about/icons/users-icn.svg';
@@ -49,9 +44,9 @@ export const about = {
   icon: UsersIcn,
   title: 'Our misson',
   subtitle1:
-    'We are distinguished by our unsurpassed motivating atmosphere, knowledgeable staff, and premier exercise equipment, which supports our members in meeting their individual fitness goals.',
+    'At Be a Leader Football Training Camp, we are committed to nurturing the next generation of exceptional football players and leaders. We aim to create an environment where athletes can unlock their full potential, develop invaluable life skills, and leave a positive impact on the football community and beyond. Join us on this transformative journey and become a leader both on and off the field. ',
   subtitle2:
-    'The strength of our heart-felt identity is utilized to inspire every person that steps foot into our gyms to better themselves.',
+    'We believe that football is not just a sport but an experience that creates lasting memories and bonds. ',
   link: 'Join Now',
 };
 
@@ -60,32 +55,16 @@ export const workouts = {
   title: 'Training programs',
   programs: [
     {
-      image: ResistanceImg,
-      name: 'Resistance',
+      image: PrivateSesh,
+      name: 'Private Sessions',
     },
     {
-      image: BoxingImg,
-      name: 'Boxing',
+      image: GroupSesh,
+      name: 'Group Sessions',
     },
     {
-      image: BodyPumpImg,
-      name: 'Body Pump',
-    },
-    {
-      image: YogaImg,
-      name: 'Yoga',
-    },
-    {
-      image: FullBodyImg,
-      name: 'Full Body',
-    },
-    {
-      image: FitnessImg,
-      name: 'Fitness',
-    },
-    {
-      image: BattleRopeImg,
-      name: 'Battle Rope',
+      image: Recruiting,
+      name: 'Recruiting Help & Advice',
     },
   ],
 };
@@ -95,35 +74,37 @@ export const pricing = {
   title: 'Pricing plan',
   plans: [
     {
-      name: 'Basic',
-      price: '25',
+      name: 'Private',
+      price: '40',
       list: [
-        { name: 'unlimited gym access' },
-        { name: '1 training programs' },
-        { name: 'free fitness consultation' },
+        { name: 'Hour-long session - 1 or 2 athletes' },
+        { name: 'Individualized feedback and correction' },
+        { name: 'Conditioning and physical development' },
+        { name: 'Tailored skill development' },
       ],
       delay: 600,
     },
     {
-      name: 'Premium',
-      price: '35',
+      name: 'Group',
+      price: '25',
       list: [
-        { name: 'unlimited gym access' },
-        { name: '5 training programs' },
-        { name: 'free fitness consultation' },
-        { name: 'personal trainer' },
+        { name: 'Hour and a half session' },
+        { name: 'Teamwork and communications' },
+        { name: 'Small-sided games and drills' },
+        { name: 'Game-related scenarios and simulations' },
+        { name: 'Competitive drills and challenges' },
       ],
       delay: 800,
     },
     {
-      name: 'Elite',
-      price: '49.99',
+      name: 'Recruiting',
+      price: '99.99',
       list: [
-        { name: 'unlimited gym access' },
-        { name: 'all training programs' },
-        { name: 'free fitness consultation' },
-        { name: 'personal trainer' },
-        { name: '50% off drinks' },
+        { name: '* Offered for high school Sophomores, Juniors and Seniors' },
+        { name: 'Player profile development' },
+        { name: 'Performance evaluation and improvement plan' },
+        { name: 'Recruiting timeline and guidelines' },
+        { name: 'Video analysis and highlight reels' },
       ],
       delay: 1000,
     },
@@ -166,12 +147,12 @@ export const faq = {
   title: 'FAQ',
   accordions: [
     {
-      question: 'How can I book a workout class?',
+      question: 'How can I book a session?',
       answer:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae temporibus beatae, totam repudiandae nam recusandae ea dolores tempora maxime.',
     },
     {
-      question: 'Can I pay by cash for my membership?',
+      question: 'Can I pay by cash for my session?',
       answer:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae temporibus beatae, totam repudiandae nam recusandae ea dolores tempora maxime.',
     },
@@ -181,17 +162,17 @@ export const faq = {
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae temporibus beatae, totam repudiandae nam recusandae ea dolores tempora maxime.',
     },
     {
-      question: 'Are there any lockers?',
+      question: 'Are there any prerequisites or skill levels required to participate in the camp?',
       answer:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae temporibus beatae, totam repudiandae nam recusandae ea dolores tempora maxime.',
     },
     {
-      question: 'How do I cancel my membership?',
+      question: 'How do I cancel my session?',
       answer:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae temporibus beatae, totam repudiandae nam recusandae ea dolores tempora maxime.',
     },
     {
-      question: 'Is there water available at the gym?',
+      question: 'Is there gatorade or powerade?',
       answer:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae temporibus beatae, totam repudiandae nam recusandae ea dolores tempora maxime.',
     },
@@ -200,13 +181,13 @@ export const faq = {
 
 export const join = {
   image: JoinImg,
-  title: 'Wanna join & have fun?',
+  title: 'hi',
   subtitle:
-    'We’ll keep you updated on the things you need to know about Gymme. Nothing more, nothing less.',
+    'We’ll keep you updated on the things you need to know about Be A Leader. Nothing more, nothing less.',
   btnText: 'Join now',
 };
 
 export const footer = {
-  logo: Logo,
-  copyrightText: 'All rights reserved. Gymme 2022.',
+  logo: YourLogo,
+  copyrightText: 'All rights reserved. Be A Leader 2023.',
 };

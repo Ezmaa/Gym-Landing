@@ -45,7 +45,7 @@ const PlanList = ({ plans }) => {
                       <span className='tracking-[0.1px]'>{price}</span>
                       <span className='text-[30px] font-extrabold'>$</span>
                     </div>
-                    <span className='text-sm font-medium'>/month</span>
+                    <span className='text-sm font-medium'>/athlete</span>
                   </div>
                 </div>
                 {/* list & btn wrapper */}
