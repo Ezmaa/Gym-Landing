@@ -33,7 +33,7 @@ export const nav = [
 
 export const banner = {
   titlePart1: "Run, don't walk to your future",
-  titlePart2: '– lead by example.',
+  titlePart2: '– Lead by example.',
   subtitle:
     'Nurturing champions through passion, guidance, and joyful play.',
   textBtn: 'Join Now',
@@ -125,19 +125,19 @@ export const community = {
       image: CommunityImg2,
       name: 'Lauren K.',
       message:
-        '“Gymme changed my life. Not only physically but mentally as well. I’m a better mother, and all around better human being because of this gym.”',
+        '“Be a Leader changed my life. Not only physically but mentally as well. I’m a better athele, and all around better human being!.”',
     },
     {
       image: CommunityImg3,
       name: 'Jhon D.',
       message:
-        '“Love these workouts! Trainers are knowledgeable and motivating. Gymme is wonderful!”',
+        '“Love these workouts! Trainers are knowledgeable and motivating. Demitri is wonderful!”',
     },
     {
       image: CommunityImg4,
       name: 'Anne R.',
       message:
-        '“Love these workouts! Trainers are knowledgeable and motivating. Gymme is wonderful!”',
+        '“Love these workouts! Trainers are knowledgeable and motivating. Demitri is wonderful!”',
     },
   ],
 };
