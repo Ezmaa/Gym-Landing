@@ -98,7 +98,7 @@ export const pricing = {
     },
     {
       name: 'Recruiting',
-      price: '99.99',
+      price: '99',
       list: [
         { name: '* Offered for high school Sophomores, Juniors and Seniors' },
         { name: 'Player profile development' },

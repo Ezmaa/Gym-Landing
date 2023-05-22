@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Gym-Landing/static/css/main.48020290.css",
+    "main.js": "/Gym-Landing/static/js/main.d5f9b416.js",
+    "static/media/group.png": "/Gym-Landing/static/media/group.63c179ec0b22c6058bd1.png",
+    "static/media/img3.png": "/Gym-Landing/static/media/img3.a3348d1eaed015b027a8.png",
+    "static/media/img2.png": "/Gym-Landing/static/media/img2.91bbc00568d13c2db8d2.png",
+    "static/media/img4.png": "/Gym-Landing/static/media/img4.032bd15fa3b9c5dcaea9.png",
+    "static/media/private.png": "/Gym-Landing/static/media/private.c7b20b69a83e838a73fc.png",
+    "static/media/img1.png": "/Gym-Landing/static/media/img1.03d3b3826fa91ccf7e82.png",
+    "static/media/demetri-stance.png": "/Gym-Landing/static/media/demetri-stance.f226aed07e21ad39f043.png",
+    "static/media/demetri-football.png": "/Gym-Landing/static/media/demetri-football.4b4c0be88029ad71a8d5.png",
+    "static/media/recruiting.png": "/Gym-Landing/static/media/recruiting.e882c04f00030bf30509.png",
+    "static/media/logo.webp": "/Gym-Landing/static/media/logo.ea785bd717e78f311bdf.webp",
+    "static/media/calendar.svg": "/Gym-Landing/static/media/calendar.316d9eb39b360280ca6b5027f5462a62.svg",
+    "static/media/price.svg": "/Gym-Landing/static/media/price.99fc6d830c98a274d69675502dec0aac.svg",
+    "index.html": "/Gym-Landing/index.html",
+    "static/media/users-icn.svg": "/Gym-Landing/static/media/users-icn.1c1181836b52f949c1de5db01fcd212e.svg",
+    "static/media/community-icn.svg": "/Gym-Landing/static/media/community-icn.6ccf103bf065aaec1be8ea4cddcb9511.svg",
+    "static/media/question-mark.svg": "/Gym-Landing/static/media/question-mark.ac78e0f4921dbec4cdd8586294a5bb5d.svg",
+    "static/media/chevron-right.svg": "/Gym-Landing/static/media/chevron-right.54d3bc1c0ea6ec072a21.svg",
+    "static/media/bg.svg": "/Gym-Landing/static/media/bg.e3dec2c236c3afaf8c8a.svg",
+    "static/media/chevron-left.svg": "/Gym-Landing/static/media/chevron-left.7d0e8c34fcab2fb5f0bc.svg",
+    "main.48020290.css.map": "/Gym-Landing/static/css/main.48020290.css.map",
+    "main.d5f9b416.js.map": "/Gym-Landing/static/js/main.d5f9b416.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48020290.css",
+    "static/js/main.d5f9b416.js"
+  ]
+}
