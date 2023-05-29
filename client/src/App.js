@@ -10,6 +10,9 @@ import 'aos/dist/aos.css';
 
 // import pages
 import Welcome from './pages/Welcome.js';
+import SignUp from './pages/Signup.js';
+import Login from './pages/Login.js';
+import MyAccount from './pages/MyAccount.js';
 
 //import components
 import Header from './components/Header';
@@ -47,7 +50,10 @@ const App = () => {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Welcome />} />
+          <Route path='/' element={<Welcome />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/MyAccount' element={<MyAccount />} />
         </Routes>
       </Router>
     </ApolloProvider>

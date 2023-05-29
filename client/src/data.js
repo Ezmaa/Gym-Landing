@@ -20,6 +20,7 @@ export const header = {
   logo: YourLogo,
   btnLoginText: 'Log in',
   btnSignupText: 'Sign Up',
+  btnSignoutText: 'sign out'
 };
 
 export const nav = [
