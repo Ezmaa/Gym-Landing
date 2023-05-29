@@ -1,19 +1,40 @@
 import React from 'react';
 
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 // import aos
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
-// import components
-import Banner from './components/Banner';
+// import pages
+import Welcome from './pages/Welcome.js';
+
+//import components
 import Header from './components/Header';
-import About from './components/About';
-import Workouts from './components/Workouts';
-import Pricing from './components/Pricing';
-import Community from './components/Community';
-import Faq from './components/Faq';
-import Join from './components/Join';
-import Footer from './components/Footer';
+
+
+const httpLink = createHttpLink({
+  uri: '/graphql'
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('id_token');
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : ''
+    }
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
 
 const App = () => {
   // aos initialization
@@ -22,18 +43,14 @@ const App = () => {
     delay: 400,
   });
   return (
-    <div className='max-w-[1440px] mx-auto bg-page overflow-hidden relative'>
-      <Header />
-      <Banner />
-      <About />
-      <Workouts />
-      <Pricing />
-      <Community />
-      <Faq />
-      <Join />
-      <Footer />
-      {/* <div className='h-[4000px]'></div> */}
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+        </Routes>
+      </Router>
+    </ApolloProvider>
   );
 };
 
