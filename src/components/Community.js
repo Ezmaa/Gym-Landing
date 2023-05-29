@@ -10,7 +10,7 @@ const Community = () => {
   // destructure community data
   const { icon, title, testimonials } = community;
   return (
-    <section className='section relative'>
+    <section className='section relative pt-[75px] mb-[275px]' id='community-link'>
       <div className='container mx-auto'>
         <div className='flex'>
           {/* section title */}
@@ -27,7 +27,7 @@ const Community = () => {
           </div>
           {/* slider */}
           <div
-            className='absolute -right-[375px] lg:-right-[280px] w-[1140px] top-48 lg:top-0'
+            className='absolute -right-[375px] lg:-right-[280px] w-[1140px] top-48 lg:top-0 pt-[75px]'
             data-aos='fade-left'
             data-aos-offset='200'
             data-aos-delay='300'

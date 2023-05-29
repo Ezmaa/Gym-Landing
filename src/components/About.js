@@ -10,7 +10,7 @@ const About = () => {
   // destructure about data
   const { title, subtitle1, subtitle2, icon, link } = about;
   return (
-    <section className='py-[80px] md:py-[110px] lg:pt-[140px] lg:pb-[180px]'>
+    <section className='py-[80px] md:mb-[130px] md:mt-[20px] md:py-[110px] lg:pt-[140px] lg:pb-[180px]' id='about-link'>
       <div className='container mx-auto px-[20px] lg:px-[135px]'>
         {/* section title */}
         <div

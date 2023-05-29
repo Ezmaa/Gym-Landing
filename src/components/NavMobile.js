@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 
 // import data
 import { nav } from '../data';
@@ -14,9 +15,16 @@ const NavMobile = ({ navMobile }) => {
         {nav.map((item, idx) => {
           return (
             <li key={idx}>
-              <a className='text-white text-body-md' href={item.href}>
+              <Link 
+                to={item.id} 
+                className='text-white text-body-md cursor-pointer'
+                spy={true}
+                smooth={true}
+                duration={1000}
+                offset={-70}
+              >
                 {item.name}
-              </a>
+                </Link>
             </li>
           );
         })}
