@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
+import { signupPage } from '../data';
 import Auth from '../utils/auth';
 
 const SignUp = () => {
@@ -50,103 +50,103 @@ const SignUp = () => {
           console.error(e);
         }
       };
-    
+      const { title, formSubmitBtn } = signupPage;
       return (
-        <main className="flex-row justify-center lg:pt-[140px] max-w-[1440px] mx-auto overflow-hidden relative">
-          <div className="col-12 col-lg-10">
-            <div className="card">
-              <h4 className="card-header">Sign Up</h4>
-              <div className="">
+        <main className='flex-row justify-center lg:pt-[140px] max-w-[1440px] mx-auto overflow-hidden relative'>
+          <div className='col-12 col-lg-10'>
+            <div className='card'>
+              <h4 className='card-header'>{title}</h4>
+              <div className=''>
                 {data ? (
                   <p>
-                    Success! You may now head <Link to="/">back to the homepage.</Link>
+                    Success! You may now head <Link to='/'>back to the homepage.</Link>
                   </p>
                 ) : (
                   <>
                     <div>
-                      <div className="row">
-                        <form className="col s12" onSubmit={handleFormSubmit}>
-                          <div class="container">
-                            <div class="row">
-                              <div class="col s12" id="reg-form">
-                                <div class="row">
-                                  <div class="input-field col s6">
+                      <div className='row'>
+                        <form className='col s12' onSubmit={handleFormSubmit}>
+                          <div class='container'>
+                            <div className='row'>
+                              <div className='col s12' id='reg-form'>
+                                <div className='row'>
+                                  <div className='input-field col s6'>
                                     <input
-                                      id="first_name"
-                                      name="firstName"
-                                      type="text"
-                                      class="validate"
+                                      id='first_name'
+                                      name='firstName'
+                                      type='text'
+                                      className='validate'
                                       required
                                       value={formState.firstName}
                                       onChange={handleChange}
                                     />
-                                    <label for="first_name">First Name</label>
+                                    <label for='first_name'>First Name</label>
                                   </div>
-                                  <div class="input-field col s6">
+                                  <div className='input-field col s6'>
                                     <input
-                                      id="last_name"
-                                      name="lastName"
-                                      type="text"
-                                      class="validate"
+                                      id='last_name'
+                                      name='lastName'
+                                      type='text'
+                                      className='validate'
                                       required
                                       value={formState.lastName}
                                       onChange={handleChange}
                                     />
-                                    <label for="last_name">Last Name</label>
+                                    <label for='last_name'>Last Name</label>
                                   </div>
                                 </div>
-                                <div class="row">
-                                  <div class="input-field col s12">
+                                <div className='row'>
+                                  <div className='input-field col s12'>
                                     <input
-                                      id="email"
-                                      name="email"
-                                      type="email"
-                                      class="validate"
+                                      id='email'
+                                      name='email'
+                                      type='email'
+                                      className='validate'
                                       required
                                       value={formState.email}
                                       onChange={handleChange}
                                     />
-                                    <label for="email">Email</label>
+                                    <label for='email'>Email</label>
                                   </div>
                                 </div>
-                                <div class="row">
-                                  <div class="input-field col s12">
+                                <div className='row'>
+                                  <div className='input-field col s12'>
                                     <input
-                                      id="password"
-                                      type="password"
-                                      class="validate"
-                                      minlength="6"
+                                      id='password'
+                                      type='password'
+                                      className='validate'
+                                      minlength='6'
                                       required
-                                      name="password"
+                                      name='password'
                                       value={formState.password}
                                       onChange={handleChange}
                                     />
-                                    <label for="password">Password</label>
+                                    <label for='password'>Password</label>
                                   </div>
                                 </div>
-                                <div class="row">
-                                  <div class="input-field col s12">
+                                <div className='row'>
+                                  <div className='input-field col s12'>
                                     <input
-                                      id="confirmPassword"
-                                      type="password"
-                                      class="validate"
-                                      minlength="6"
+                                      id='confirmPassword'
+                                      type='password'
+                                      className='validate'
+                                      minlength='6'
                                       required
-                                      name="confirmPassword"
+                                      name='confirmPassword'
                                       value={formState.confirmPassword}
                                       onChange={handleChange}
                                     />
-                                    <label for="confirmPassword">Confirm Password</label>
+                                    <label for='confirmPassword'>Confirm Password</label>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <button
-                            className="btn btn-block btn-info"
+                            className='btn btn-block btn-info'
                             style={{ cursor: 'pointer' }}
-                            type="submit">
-                            Submit
+                            type='submit'>
+                            {formSubmitBtn}
                           </button>
                         </form>
                       </div>
@@ -154,7 +154,7 @@ const SignUp = () => {
                   </>
                 )}
     
-                {error && <div className="my-3 p-3 bg-danger">{error.message}</div>}
+                {error && <div className='my-3 p-3 bg-danger'>{error.message}</div>}
               </div>
             </div>
           </div>

@@ -7,6 +7,7 @@ const typeDefs = gql`
     lastName: String
     email: String
     password: String
+    resetToken: String
   }
 
   type Auth {
@@ -18,6 +19,7 @@ const typeDefs = gql`
     users: [User]!
     singleUser(userId: ID!): User
     me: User
+    getUserByEmail(email: String!): User
   }
 
   type Mutation {
@@ -29,6 +31,8 @@ const typeDefs = gql`
     ): Auth
     login(email: String!, password: String!): Auth
     updateUser: User
+    generateResetToken(email: String!): User
+    changePassword( resetToken: String!, newPassword: String!): User
   }
 `;
 

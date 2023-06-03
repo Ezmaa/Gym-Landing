@@ -13,6 +13,9 @@ import Welcome from './pages/Welcome.js';
 import SignUp from './pages/Signup.js';
 import Login from './pages/Login.js';
 import MyAccount from './pages/MyAccount.js';
+import ForgotPassword from './pages/ForgotPassword.js';
+import ResetPassword from './pages/ResetPassword.js';
+import Error404 from './pages/Error404.js'
 
 //import components
 import Header from './components/Header';
@@ -53,7 +56,10 @@ const App = () => {
           <Route path='/' element={<Welcome />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/MyAccount' element={<MyAccount />} />
+          <Route path='/myAccount' element={<MyAccount />} />
+          <Route path='/ForgotPassword' element={<ForgotPassword />} />
+          <Route path='/reset-password' element={<ResetPassword />} />
+          <Route path='/404' element={<Error404 />} />
         </Routes>
       </Router>
     </ApolloProvider>

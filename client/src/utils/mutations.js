@@ -49,3 +49,13 @@ export const UPDATE_USER = gql`
 `;
 
 
+export const CHANGE_PASSWORD = gql`
+  mutation changePassword( $resetToken: String!, $newPassword: String!) {
+    changePassword( resetToken: $resetToken, newPassword: $newPassword) {
+      _id
+      firstName
+      lastName
+      email
+    }
+  }
+`;

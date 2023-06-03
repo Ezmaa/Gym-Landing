@@ -7,7 +7,7 @@ const userSchema = new Schema({
     required: true,
     trim: true,
     minlength: 2,
-    maxlenght: 15
+    maxlength: 15
   },
   lastName: {
     type: String,
@@ -26,6 +26,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 5
+  },
+  resetToken: {
+    type: String,
+    required: false
   }
 });
 

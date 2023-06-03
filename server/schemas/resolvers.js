@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
-const { signToken } = require('../utils/auth');
+const { signToken, verifyResetToken } = require('../utils/auth');
+const { generateResetToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -19,7 +20,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-  
+
+    getUserByEmail: async (parent, { email }) => {
+      return User.findOne({ email });
+    },
   },
 
   Mutation: {
@@ -63,8 +67,48 @@ const resolvers = {
         return User.findOneAndUpdate({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
-    }
-  }
+    },
+
+    generateResetToken: async (parent, { email }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new Error('User not found!');
+      }
+
+      // Generate the reset token
+      const resetToken = generateResetToken(user._id);
+
+      // Store the reset token in the database for the user
+      user.resetToken = resetToken;
+      await user.save();
+
+      return user;
+    },
+
+    changePassword: async (parent, { resetToken, newPassword }) => {
+      // Verify the reset token
+      const userId = verifyResetToken(resetToken);
+
+      if (!userId) {
+        throw new AuthenticationError('Invalid reset token!');
+      }
+
+      // Find the user by the verified user ID
+      const user = await User.findById(userId);
+
+      if (!user) {
+        throw new Error('User not found!');
+      }
+
+      // Update the user's password
+      user.password = newPassword;
+      user.resetToken = null;
+      await user.save();
+
+      return user;
+    },
+  },
 };
 
 module.exports = resolvers;

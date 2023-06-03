@@ -7,7 +7,7 @@ const MyAccount = () => {
 
     
     if (!Auth.loggedIn()) {
-        return <Navigate to="/login" />;
+        return <Navigate to='/login' />;
     };
 
     return(

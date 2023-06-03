@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-import { loginPage } from '../data';
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_USER_BY_EMAIL } from '../utils/queries'
+import { forgotPassword } from '../data';
 
-import Auth from '../utils/auth';
 
-const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+const ForgotPassword = (props) => {
+  const [formState, setFormState] = useState({ email: '' });
+  const [emailSent, setEmailSent] = useState()
+  const [getUserByEmail, { loading, data, error }] = useLazyQuery(QUERY_USER_BY_EMAIL);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -22,34 +22,44 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-   
-    try {
-      console.log(formState)
-      const { data } = await login({
-        variables: { ...formState }
-      });
 
-      Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
-    }
+    try {
+        const response = await fetch('/api/reset-token', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: formState.email
+          })
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          setEmailSent(true)
+          console.log(data); // Display the response data in the console
+        } else {
+          alert('wrong email')
+        }
+      } catch (error) {
+        console.error(error);
+      }
 
     // clear form values
     setFormState({
-      email: '',
-      password: ''
+      email: ''
     });
   };
-  const { title, formSubmitBtn, errorMessage } = loginPage;
+  const { title, success, btnLoginText, formSubmitBtn } = forgotPassword;
   return (
     <main className='flex-row justify-center flex-row justify-center lg:pt-[140px] max-w-[1440px] mx-auto overflow-hidden relative'>
       <div className='col-12 col-lg-10'>
         <div className='card'>
           <h4 className='card-header p-2'>{title}</h4>
           <div className='card-body'>
-            {data ? (
+            {emailSent ? (
               <p>
-                Success! You may now head <Link to='/'>back to the homepage.</Link>
+                {success}
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
@@ -59,14 +69,6 @@ const Login = (props) => {
                   name='email'
                   type='email'
                   value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className='form-input'
-                  placeholder='******'
-                  name='password'
-                  type='password'
-                  value={formState.password}
                   onChange={handleChange}
                 />
                 
@@ -80,13 +82,11 @@ const Login = (props) => {
           
                 <div className='row'>
                   <div className='col s4'>
-                    <Link to='/ForgotPassword'> Forgot password?</Link>
+                    <Link  to='/Login'> {btnLoginText} </Link>
                   </div>
                 </div>
               </form>
             )}
-
-            {error && <div className='my-3 p-3 bg-danger'>{errorMessage}</div>}
           </div>
         </div>
       </div>
@@ -94,4 +94,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

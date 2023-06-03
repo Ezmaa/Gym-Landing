@@ -31,5 +31,17 @@ module.exports = {
   signToken: function ({ email, firstName, _id }) {
     const payload = { email, firstName, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+  },
+  generateResetToken: function (userId) {
+    const token = jwt.sign({ userId }, secret, { expiresIn: '1h' });
+    return token;
+  },
+  verifyResetToken: function (token) {
+    try {
+      const decoded = jwt.verify(token, secret);
+      return decoded.userId;
+    } catch {
+      return null;
+    }
   }
 };

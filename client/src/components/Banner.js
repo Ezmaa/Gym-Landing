@@ -1,7 +1,10 @@
 import React from 'react';
+import Auth from '../utils/auth';
+
 
 // import data
 import { banner } from '../data';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
   // destructure banner data
@@ -26,13 +29,15 @@ const Banner = () => {
             >
               {subtitle}
             </p>
-            <button
-              className='btn btn-sm lg:btn-lg btn-secondary'
-              data-aos='fade-down'
-              data-aos-delay='700'
-            >
-              {textBtn}
-            </button>
+            <Link to={Auth.loggedIn() ? '/myAccount' : '/signup'}>
+              <button
+                className='btn btn-sm lg:btn-lg btn-secondary'
+                data-aos='fade-down'
+                data-aos-delay='700'
+              >
+                {textBtn}
+              </button>
+            </Link>
           </div>
           {/* image */}
           <div

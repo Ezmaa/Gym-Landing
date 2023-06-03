@@ -192,3 +192,34 @@ export const footer = {
   logo: YourLogo,
   copyrightText: 'All rights reserved. Be A Leader 2023.',
 };
+
+export const loginPage = {
+  title: 'Log in',
+  errorMessage: 'email or password incorrect',
+  formSubmitBtn: 'Submit'
+};
+
+export const signupPage = {
+  title: 'Sign up',
+  formSubmitBtn: 'Submit',
+};
+
+export const forgotPassword = {
+  title: 'Forgot Your Password?',
+  success: 'Success! Check your email for reset link',
+  formSubmitBtn: 'Send code to email',
+  btnLoginText: 'Log in'
+};
+
+export const resetPassword = {
+  title: 'Reset Password',
+  success: 'Success! You may now login',
+  btnLoginText: 'Log in',
+  newPasswordLabel: 'New Password',
+  confirmPasswordLabel: 'Confirm Password',
+  formSubmitBtn: 'Submit'
+};
+
+export const error404 = {
+  ErrorMessage: 'Oops something went wrong...'
+}
