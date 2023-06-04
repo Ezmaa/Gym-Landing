@@ -29,7 +29,7 @@ const Banner = () => {
             >
               {subtitle}
             </p>
-            <Link to={Auth.loggedIn() ? '/myAccount' : '/signup'}>
+            <Link to={Auth.loggedIn() ? '/MyAccount' : '/signup'}>
               <button
                 className='btn btn-sm lg:btn-lg btn-secondary'
                 data-aos='fade-down'

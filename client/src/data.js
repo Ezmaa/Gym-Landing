@@ -20,7 +20,8 @@ export const header = {
   logo: YourLogo,
   btnLoginText: 'Log in',
   btnSignupText: 'Sign Up',
-  btnSignoutText: 'sign out'
+  btnSignoutText: 'sign out',
+  btnAccountText: 'My Account'
 };
 
 export const nav = [
