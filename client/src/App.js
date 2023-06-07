@@ -10,7 +10,7 @@ import 'aos/dist/aos.css';
 
 // import pages
 import Welcome from './pages/Welcome.js';
-import SignUp from './pages/Signup.js';
+import SignUp from './pages/SignUp.js';
 import Login from './pages/Login.js';
 import MyAccount from './pages/MyAccount.js';
 import ForgotPassword from './pages/ForgotPassword.js';
