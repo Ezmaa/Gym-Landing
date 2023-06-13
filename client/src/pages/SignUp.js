@@ -52,113 +52,103 @@ const SignUp = () => {
       };
       const { title, formSubmitBtn } = signupPage;
       return (
-        <main className='flex-row justify-center lg:pt-[140px] max-w-[1440px] mx-auto overflow-hidden relative'>
-          <div className='col-12 col-lg-10'>
-            <div className='card'>
-              <h4 className='card-header'>{title}</h4>
-              <div className=''>
-                {data ? (
-                  <p>
-                    Success! You may now head <Link to='/'>back to the homepage.</Link>
-                  </p>
-                ) : (
-                  <>
-                    <div>
-                      <div className='row'>
-                        <form className='col s12' onSubmit={handleFormSubmit}>
-                          <div class='container'>
-                            <div className='row'>
-                              <div className='col s12' id='reg-form'>
-                                <div className='row'>
-                                  <div className='input-field col s6'>
-                                    <input
-                                      id='first_name'
-                                      name='firstName'
-                                      type='text'
-                                      className='validate'
-                                      required
-                                      value={formState.firstName}
-                                      onChange={handleChange}
-                                    />
-                                    <label for='first_name'>First Name</label>
-                                  </div>
-                                  <div className='input-field col s6'>
-                                    <input
-                                      id='last_name'
-                                      name='lastName'
-                                      type='text'
-                                      className='validate'
-                                      required
-                                      value={formState.lastName}
-                                      onChange={handleChange}
-                                    />
-                                    <label for='last_name'>Last Name</label>
-                                  </div>
-                                </div>
-                                <div className='row'>
-                                  <div className='input-field col s12'>
-                                    <input
-                                      id='email'
-                                      name='email'
-                                      type='email'
-                                      className='validate'
-                                      required
-                                      value={formState.email}
-                                      onChange={handleChange}
-                                    />
-                                    <label for='email'>Email</label>
-                                  </div>
-                                </div>
-                                <div className='row'>
-                                  <div className='input-field col s12'>
-                                    <input
-                                      id='password'
-                                      type='password'
-                                      className='validate'
-                                      minlength='6'
-                                      required
-                                      name='password'
-                                      value={formState.password}
-                                      onChange={handleChange}
-                                    />
-                                    <label for='password'>Password</label>
-                                  </div>
-                                </div>
-                                <div className='row'>
-                                  <div className='input-field col s12'>
-                                    <input
-                                      id='confirmPassword'
-                                      type='password'
-                                      className='validate'
-                                      minlength='6'
-                                      required
-                                      name='confirmPassword'
-                                      value={formState.confirmPassword}
-                                      onChange={handleChange}
-                                    />
-                                    <label for='confirmPassword'>Confirm Password</label>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <button
-                            className='btn btn-block btn-info'
-                            style={{ cursor: 'pointer' }}
-                            type='submit'>
-                            {formSubmitBtn}
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </>
-                )}
-    
-                {error && <div className='my-3 p-3 bg-danger'>{error.message}</div>}
-              </div>
-            </div>
+        <main className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="w-full max-w-md">
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <h1 className="text-3xl font-semibold mb-6">{title}</h1>
+            {data ? (
+              <p>
+                Success! You may now head <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="firstName" className="block mb-2 text-gray-800">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Your First Name"
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none hover:text-primary-200 "
+                    value={formState.firstName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="lastName" className="block mb-2 text-gray-800">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Your Last Name"
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none hover:text-primary-200 "
+                    value={formState.lastName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block mb-2 text-gray-800">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your Email"
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none hover:text-primary-200 "
+                    value={formState.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password" className="block mb-2 text-gray-800">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Your Password"
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none hover:text-primary-200 "
+                    value={formState.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="confirmPassword" className="block mb-2 text-gray-800">
+                    Confirm Password
+                  </label>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none hover:text-primary-200"
+                    value={formState.confirmPassword}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-primary-200 text-white py-2 px-4 rounded hover:text-primary-300  transition-colors"
+                >
+                  {formSubmitBtn}
+                </button>
+              </form>
+            )}
+            {error && <div className="my-3 p-3 bg-danger">{error.message}</div>}
           </div>
-        </main>
+        </div>
+      </main>
       );
     }; 
   

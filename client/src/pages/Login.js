@@ -42,52 +42,46 @@ const Login = (props) => {
   };
   const { title, formSubmitBtn, errorMessage } = loginPage;
   return (
-    <main className='flex-row justify-center flex-row justify-center lg:pt-[140px] max-w-[1440px] mx-auto overflow-hidden relative'>
-      <div className='col-12 col-lg-10'>
-        <div className='card'>
-          <h4 className='card-header p-2'>{title}</h4>
-          <div className='card-body'>
-            {data ? (
-              <p>
-                Success! You may now head <Link to='/'>back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className='form-input'
-                  placeholder='Enter your email'
-                  name='email'
-                  type='email'
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className='form-input'
-                  placeholder='******'
-                  name='password'
-                  type='password'
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                
-                <button
-                  className='btn btn-block btn-info'
-                  style={{ cursor: 'pointer' }}
-                  type='submit'
-                >
-                  {formSubmitBtn}
-                </button>
-          
-                <div className='row'>
-                  <div className='col s4'>
-                    <Link to='/ForgotPassword'> Forgot password?</Link>
-                  </div>
-                </div>
-              </form>
-            )}
-
-            {error && <div className='my-3 p-3 bg-danger'>{errorMessage}</div>}
-          </div>
+    <main className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md">
+        <div className="bg-white rounded-lg shadow-md p-8">
+          <h1 className="text-3xl font-semibold mb-6">{title}</h1>
+          {data ? (
+            <p>
+              Success! You may now head <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formState.email}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none hover:text-primary-200"
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="******"
+                value={formState.password}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none hover:text-primary-200"
+              />
+              <button
+                type="submit"
+                className="w-full bg-primary-200 text-white py-2 px-4 rounded hover:text-primary-200transition-colors"
+              >
+                {formSubmitBtn}
+              </button>
+              <div className="text-center">
+                <Link to="/ForgotPassword" className="text-primary-200 hover:text-primary-200">
+                  Forgot password?
+                </Link>
+              </div>
+            </form>
+          )}
+          {error && <div className="my-3 p-3 bg-danger">{errorMessage}</div>}
         </div>
       </div>
     </main>
