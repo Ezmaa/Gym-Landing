@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // import data
 import { banner } from '../data';
@@ -26,6 +27,7 @@ const Banner = () => {
             >
               {subtitle}
             </p>
+            <Link to='/signup'>
             <button
               className='btn btn-sm lg:btn-lg btn-secondary'
               data-aos='fade-down'
@@ -33,6 +35,7 @@ const Banner = () => {
             >
               {textBtn}
             </button>
+            </Link>
           </div>
           {/* image */}
           <div
