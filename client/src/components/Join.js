@@ -2,6 +2,7 @@ import React from 'react';
 
 // import data
 import { join } from '../data';
+import { Link } from 'react-router-dom';
 
 const Join = () => {
   // destructure join data
@@ -33,7 +34,9 @@ const Join = () => {
             <p className='text-body-sm md:text-body-md text-white mb-4 lg:mb-6 max-w-[348px] md:max-w-[470px] lg:max-w-[492px]'>
               {subtitle}
             </p>
+            <Link to='/signup'>
             <button className='btn btn-secondary btn-lg'>{btnText}</button>
+            </Link>
           </div>
         </div>
       </div>

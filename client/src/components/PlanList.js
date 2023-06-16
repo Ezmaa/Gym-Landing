@@ -74,7 +74,7 @@ const PlanList = ({ plans }) => {
                         : 'border border-neutral-500'
                     } btn btn-lg rounded-[1px] lg:mx-auto`}
                   >
-                    Join now
+                    Purchase
                   </button>
                 </div>
               </div>
