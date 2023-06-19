@@ -10,7 +10,7 @@ const MyAccount = () => {
 
   return (
     <div className="lg:pt-[140px]">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">Welcome</h1>
+      <h1 className="text-6xl font-bold text-gray-800 mb-6 flex justify-center">Welcome</h1>
       <Checkout></Checkout>
     </div>
   );
