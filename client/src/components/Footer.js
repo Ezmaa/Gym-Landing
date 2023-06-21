@@ -15,7 +15,7 @@ const Footer = () => {
       >
         {/* logo */}
         <a href='#'>
-          <img className='' src={logo} alt='' />
+          <img className='max-w-[600px]' src={logo} alt='' />
         </a>
         {/* copyright text */}
         <p className='text-neutral-300 text-sm'>{copyrightText}</p>
