@@ -4,7 +4,7 @@ import { BsCheckCircleFill } from 'react-icons/bs';
 import { pricing } from '../data'
 import Auth from '../utils/auth';
 
-const Checkout = () => {
+const Checkout = ({ email }) => {
     const [quantity, setQuantity] = useState(1);
     const [index, setIndex] = useState(0);
 
@@ -16,7 +16,7 @@ const Checkout = () => {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ productId: index, quantity }),
+            body: JSON.stringify({ productId: index, quantity, customer_email: email }),
           });
       
           const { sessionId } = await response.json();
