@@ -5,13 +5,10 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware, generateResetToken } = require('./utils/auth');
 const cors = require('cors');
-const sendemail = require('./mailer/index')
+const sendemail = require('./mailer/index');
 const bodyParser = require('body-parser');
 const { User } = require('./models');
 const stripe = require('stripe')('sk_test_51NEywCL7TQcQn1HDMfX82zDNhMK6FHN7A2D5lxhflU1aqjNkRKk3yNGUK7p0IVWlztwhJDAOqKs4xA5A3Ok1UuQD00CLLN01dA');
-
-// eslint-disable-next-line no-unused-vars
-
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -63,7 +60,7 @@ app.post('/api/reset-token', async (req, res) => {
     const resetLink = `http://localhost:3000/reset-password?token=${resetToken}`;
 
     // Send the password reset email
-    sendemail(email, resetLink)
+    sendemail(email, resetLink);
 
     // Return the reset token to the front-end
     res.json({ message: 'Password reset email sent' });
@@ -75,9 +72,9 @@ app.post('/api/reset-token', async (req, res) => {
 
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
-    const { productId, quantity } = req.body;
+    const { productId, quantity, customer_email } = req.body;
 
-    // Products stored on server
+    // Retrieve the selected product based on productId
     const products = {
       0: {
         name: 'Private',
@@ -92,15 +89,27 @@ app.post('/api/create-checkout-session', async (req, res) => {
         price: 9900,
       },
     };
-
-    // Retrieve the selected product based on productId
     const product = products[productId];
 
     if (!product) {
       return res.status(400).json({ error: 'Invalid product selected' });
     }
 
-    // Create the Stripe Checkout session using the product information
+    // Retrieve the customer from the Stripe account using the email
+    const customer = await stripe.customers.list({ email: customer_email });
+
+    let customerId;
+
+    // If customer does not exist, create a new customer in Stripe
+    if (!customer || customer.data.length === 0) {
+      const newCustomer = await stripe.customers.create({ email: customer_email });
+      customerId = newCustomer.id;
+    } else {
+      // Retrieve the customer ID from the customer data
+      customerId = customer.data[0].id;
+    }
+
+    // Create the Stripe Checkout session using the product information and customer ID
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -115,6 +124,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
           quantity: parseInt(quantity),
         },
       ],
+      customer: customerId,
       mode: 'payment',
       success_url: 'http://localhost:3000/success', // Redirect URL on successful payment
       cancel_url: 'http://localhost:3000/MyAccount', // Redirect URL on canceled payment
@@ -143,9 +153,44 @@ app.get('/api/checkout-session/:sessionId', async (req, res) => {
   }
 });
 
+app.get('/api/transactions', async (req, res) => {
+  const { email } = req.query;
+
+  try {
+    // Decode the email parameter if needed
+    const decodedEmail = decodeURIComponent(email);
+
+    // Retrieve the customer from the Stripe account using the email
+    const customer = await stripe.customers.list({ email: decodedEmail });
+
+    // If customer does not exist, return an empty array
+    if (!customer || customer.data.length === 0) {
+      return res.json([]);
+    }
+    
+
+    // Retrieve the customer ID from the customer data
+    const customerId = customer.data[0].id;
+
+    // Retrieve the transactions for the customer
+    const transactions = await stripe.charges.list({
+      customer: customerId,
+    });
+    res.json(transactions.data);
+  } catch (error) {
+    // Handle the error
+    if (error.code === 'resource_missing') {
+      // Handle the case where the customer ID is incorrect or no longer exists
+      return res.status(404).json({ error: 'Customer not found' });
+    }
+
+    console.error('Error retrieving transactions:', error);
+    res.status(500).json({ error: 'An error occurred while retrieving transactions' });
+  }
+});
+
 
 // Create a new instance of an Apollo server with the GraphQL schema
-// eslint-disable-next-line no-unused-vars
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
@@ -157,7 +202,6 @@ const startApolloServer = async (typeDefs, resolvers) => {
     });
   });
 };
-
 
 // Call the async function to start the server
 startApolloServer(typeDefs, resolvers);
